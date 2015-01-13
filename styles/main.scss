@@ -1,0 +1,58 @@
+@import 'bourbon/bourbon';
+$visual-grid: true;
+@import 'neat/neat';
+
+/* Breakpoints=========================== */
+
+$tablet: new-breakpoint(max-width 840px min-width 501px 2);
+$mobile: new-breakpoint(max-width 500px 12);
+
+/* Fonts ================================ */
+
+$raleway: 'Raleway', sans-serif;
+
+$body-font: $raleway;
+
+/* Colors =============================== */
+
+$picton-blue: #57A4D3;
+
+$primary-color: $picton-blue;
+
+/* Sizing =============================== */
+
+$banner-width: 100%;
+$banner-height: 100%;
+
+/* Layout =============================== */
+
+.content {
+  font-family: $body-font;
+  color: $primary-color;
+
+  img {
+    max-width: $banner-width;
+    max-height: $banner-height;
+  }
+}
+
+.content {
+  @include outer-container;
+}
+
+.post {
+  @include span-columns(4);
+
+  @include media($tablet ) {
+    @include span-columns(2);
+    .image-container,
+    .text {
+      @include span-columns(1);
+    }
+  }
+
+  @include media($mobile) {
+    @include span-columns(12);
+  }
+
+}
